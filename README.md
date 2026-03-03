@@ -24,8 +24,8 @@ Automated volume generation bot for GRVT - a ZKSync-powered decentralized perpet
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/grvt-volume-bot.git
-cd grvt-volume-bot
+git clone https://github.com/ibuyshite/grvt.git
+cd grvt
 ```
 
 ### 2. Create virtual environment
