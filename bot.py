@@ -18,14 +18,14 @@ from pysdk.grvt_ccxt_env import GrvtEnv
 class GRVTVolumeBot:
     def __init__(self):
         self.market = os.getenv('MARKET', 'BTC_USDT_Perp')
-        self.leverage = int(os.getenv('LEVERAGE', '10'))
+        self.leverage = int(os.getenv('LEVERAGE', '50'))
         self.investment_usdc = float(os.getenv('INVESTMENT_USDC', '10'))
 
-        self.spread_bps = float(os.getenv('SPREAD_BPS', '5'))
-        self.order_size_percent = float(os.getenv('ORDER_SIZE_PERCENT', '0.3'))
-        self.refresh_interval = float(os.getenv('REFRESH_INTERVAL', '6'))
+        self.spread_bps = float(os.getenv('SPREAD_BPS', '1'))
+        self.order_size_percent = float(os.getenv('ORDER_SIZE_PERCENT', '0.6'))
+        self.refresh_interval = float(os.getenv('REFRESH_INTERVAL', '3'))
 
-        self.delay_after_cancel = 0.3
+        self.delay_after_cancel = 0.2
         self.client = None
         self.start_time = None
 
@@ -48,7 +48,7 @@ class GRVTVolumeBot:
 
         print("🚀 Bot started")
         print(f"Market: {self.market}")
-        print(f"TP: 4 bps")
+        print(f"TP: 3 bps")
         print("=" * 60)
 
     async def cancel_all_orders(self):
@@ -126,7 +126,7 @@ class GRVTVolumeBot:
                 if size == 0:
                     continue
 
-                tp_percent = 4 / 10000
+                tp_percent = 3 / 10000
 
                 if size > 0:
                     tp_price = entry * (1 + tp_percent)
